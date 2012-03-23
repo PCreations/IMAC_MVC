@@ -1,6 +1,8 @@
 <?php
 require_once("models/blog.php");
 
+$defaultCSS = array('blog.css');
+
 function index() {
 	$listeArticles = getArticles();
 
@@ -10,5 +12,5 @@ function index() {
 	}
 
 	$vars['listeArticles'] = $listeArticles;
-	render('blog', 'listeArticles', $vars);
+	render('listeArticles', $vars);
 }

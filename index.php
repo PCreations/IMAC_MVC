@@ -39,6 +39,18 @@ $controllerFilePath = 'controllers/' . $currentController . 'Controller.php';
 
 require_once($controllerFilePath);
 
+/* reset des fichiers CSS et JS pour qu'ils correspondent à ceux par défaut du controller */
+if (isset($defaultCSS)) {
+	if(is_array($defaultCSS)) {
+		$CSS_FILES = $defaultCSS;
+	}
+}
+if (isset($defaultJS)) {
+	if(is_array($defaultJS)) {
+		$JS_FILES = $defaultJS;
+	}
+}
+
 //On vérifie si l'action existe bien
 if (!function_exists($action)) //si la fonction n'existe pas on redirige vers l'index du controller
 	$action = 'index';
