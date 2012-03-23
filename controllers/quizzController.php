@@ -1,6 +1,8 @@
 <?php
 include_once('models/quizz.php');
 
+$defaultCSS = array('quizz.css');
+
 function index() {
 	echo "Bienvenue sur l'index du controller quizz";
 }
