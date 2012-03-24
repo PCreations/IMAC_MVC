@@ -1,4 +1,6 @@
 <?php
+define('GET_VAR_NAME', 'page');
+define('INDEX_ACTION', 'index');
 define('BASE_URL', 'http://localhost/mvc/');
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', dirname(dirname(__FILE__))); //racine du projet

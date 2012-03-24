@@ -23,6 +23,7 @@ function getControllers() {
 
 function render($view, $vars = array()) {
 	global $currentController;
+	global $pageTitle;
 	global $JS_FILES;
 	global $CSS_FILES;
 
@@ -43,8 +44,14 @@ function render($view, $vars = array()) {
 	}
 	else
 		$cssList = "<link rel=\"stylesheet\" href=\"" . CSS_DIR . "$css\" />";
+	
+
+	/* récupération du titre de la page */
+	$finalPageTitle = (isset($vars['pageTitle'])) ? $pageTitle .$vars['pageTitle'] : $pageTitle;
 
 	extract($vars);
+	$pageTitle = $finalPageTitle;
+	
 	ob_start(); //on commence la tamporisation de sortie
 	require_once("views/$currentController/$view.php"); //on bufferise le contenu de la vue
 	$contentForLayout = ob_get_clean(); //qu'on stocke dans la variable $contentForLayout
@@ -77,4 +84,26 @@ function addCSS($css) {
 	else {
 		$CSS_FILES[] = $css;
 	}
+}
+
+function redirect($controller, $action) {
+	header('Location: ' . BASE_URL . 'index.php?' . GET_VAR_NAME . '=' . $controller . '/' . $action);
+	exit();
+}
+
+function createLink($controller, $action, $params = array()) {
+	
+	$listeParams = '';
+
+	if(isset($params)) {
+		foreach($params as $param) {
+			$listeParams .= "/$param";
+		}
+	}
+
+	return BASE_URL . $controller . '/' . $action . $listeParams;
+}
+
+function l($controller, $action, $params = array()) {
+	return createLink($controller, $action, $params);
 }
