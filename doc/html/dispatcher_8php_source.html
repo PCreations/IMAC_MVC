@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>IMAC MVC:  Fichier source de core/dispatcher.php</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">IMAC MVC
+   &#160;<span id="projectnumber">0.1.1</span>
+   </div>
+   <div id="projectbrief">Petite architecture MVC simplifiée pour les projets IMAC1 php</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.8.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('dispatcher_8php.html','');
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Énumérations</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">core/dispatcher.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="dispatcher_8php.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
+<a name="l00002"></a>00002 
+<a name="l00014"></a><a class="code" href="dispatcher_8php.html#ae983faa34cafdcccc76bb81647d10d72">00014</a> <span class="keyword">function</span> <a class="code" href="dispatcher_8php.html#ae983faa34cafdcccc76bb81647d10d72" title="Défini le contrôleur et l&#39;action à appeler. A utiliser uniquement dans la page index.php à la racine de votre projet.">dispatch</a>($defaultController = null, $defaultAction = <a class="code" href="config_8php.html#a57597912779f7a405b4930ca59fbbb8e">INDEX_ACTION</a>, $rewrite = <span class="keyword">false</span>) {
+<a name="l00015"></a>00015     <span class="keywordflow">if</span>(isset($_GET[<a class="code" href="config_8php.html#ade5667635816e5abbe1edeac7581893e">GET_VAR_NAME</a>]) &amp;&amp; !empty($_GET[GET_VAR_NAME])) {
+<a name="l00016"></a>00016         $url = $_GET[<a class="code" href="config_8php.html#ade5667635816e5abbe1edeac7581893e">GET_VAR_NAME</a>];
+<a name="l00017"></a>00017     }
+<a name="l00018"></a>00018     <span class="keywordflow">else</span> {
+<a name="l00019"></a>00019         <span class="keywordflow">if</span> ($defaultController != null) {
+<a name="l00020"></a>00020             <span class="keywordflow">if</span>($rewrite)
+<a name="l00021"></a>00021                 <a class="code" href="lib_core_8php.html#a1785c8b0d2b545f3a495f3eabdf3c095" title="Redirige l&#39;internaute vers l&#39;action du contrôleur demandé. A utiliser depuis le contrôleur.">redirect</a>($defaultController, $defaultAction);
+<a name="l00022"></a>00022             <span class="keywordflow">else</span>
+<a name="l00023"></a>00023                 $url = $defaultController . <span class="charliteral">&#39;/&#39;</span> . $defaultAction;
+<a name="l00024"></a>00024         }
+<a name="l00025"></a>00025         <span class="keywordflow">else</span> {
+<a name="l00026"></a>00026             $url = <span class="stringliteral">&quot;pages/home&quot;</span>;
+<a name="l00027"></a>00027         }
+<a name="l00028"></a>00028         
+<a name="l00029"></a>00029     }
+<a name="l00030"></a>00030     <a class="code" href="dispatcher_8php.html#ac8975bde247e471a5a6441be370de10b" title="Parse une url en extrayant le contrôleur, l&#39;action et les paramètres demandés. Mets à jour les fichie...">parseURL</a>($url);
+<a name="l00031"></a>00031 }
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 
+<a name="l00041"></a><a class="code" href="dispatcher_8php.html#ac8975bde247e471a5a6441be370de10b">00041</a> <span class="keyword">function</span> <a class="code" href="dispatcher_8php.html#ac8975bde247e471a5a6441be370de10b" title="Parse une url en extrayant le contrôleur, l&#39;action et les paramètres demandés. Mets à jour les fichie...">parseURL</a>($url) {
+<a name="l00042"></a>00042     global $currentController; <span class="comment">//récupération de la variable qui stockera le contrôleur ocurant</span>
+<a name="l00043"></a>00043     global $CSS_FILES; <span class="comment">//récupération de la liste des fichiers .css</span>
+<a name="l00044"></a>00044     global $JS_FILES; <span class="comment">//récupération de la liste des fichiers .js</span>
+<a name="l00045"></a>00045     global $pageTitle; <span class="comment">//récupération du titre</span>
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047     <span class="comment">/* suppression des &#39;/&#39; en fin d&#39;url et extraction sous forme de tableau des différents éléments */</span>
+<a name="l00048"></a>00048     $url = rtrim($url, <span class="charliteral">&#39;/&#39;</span>);
+<a name="l00049"></a>00049     $params = explode(<span class="charliteral">&#39;/&#39;</span>, $url);
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051     <span class="comment">/* récupération du nom du contrôleur courant */</span>
+<a name="l00052"></a>00052     $currentController = $params[0]; 
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054     <span class="comment">/* si aucune action n&#39;est spécifiée on redirige vers l&#39;action index du contrôleur */</span>
+<a name="l00055"></a>00055     $action = (isset($params[1])) ? $params[1] : <a class="code" href="config_8php.html#a57597912779f7a405b4930ca59fbbb8e">INDEX_ACTION</a>; 
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057     <span class="comment">/* les paramètres sont créer à partir du sous tableau commencant à l&#39;indice 2 du tableau $params (i.e si $params = array</span>
+<a name="l00058"></a>00058 <span class="comment">                                [0] =&gt; &#39;controller&#39;,</span>
+<a name="l00059"></a>00059 <span class="comment">                                [1] =&gt; &#39;action&#39;,</span>
+<a name="l00060"></a>00060 <span class="comment">                                [2] =&gt; &#39;params1&#39;,</span>
+<a name="l00061"></a>00061 <span class="comment">                                [3] =&gt; &#39;params2&#39;) </span>
+<a name="l00062"></a>00062 <span class="comment">                                alors après array_slice($params, 2) $params vaudra juste :</span>
+<a name="l00063"></a>00063 <span class="comment">                                array  </span>
+<a name="l00064"></a>00064 <span class="comment">                                [0] =&gt; &#39;params1&#39;,</span>
+<a name="l00065"></a>00065 <span class="comment">                                [1] =&gt; &#39;params2&#39;)*/</span>
+<a name="l00066"></a>00066     $params = array_slice($params, 2); 
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068     <span class="comment">/* Inclusion du controller demandé, s&#39;il n&#39;existe pas en inclu à la place le controller qui gere les erreurs 404 (ici le controller 404) */</span>
+<a name="l00069"></a>00069     $controllerFilePath = <a class="code" href="dispatcher_8php.html#a313bca01e64a3f4ab9ed872828e1af0f" title="Recupère le chemin vers le contrôleur demandé. Fonction appelée uniquement par parseURL(), ne pas appeler en dehors.">getControllerFilePath</a>($currentController);
+<a name="l00070"></a>00070     require_once($controllerFilePath);
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072     <span class="comment">/* reset des fichiers CSS et JS pour qu&#39;ils correspondent à ceux par défaut du controller */</span>
+<a name="l00073"></a>00073     <span class="keywordflow">if</span> (isset($defaultCSS)) {
+<a name="l00074"></a>00074         <span class="keywordflow">if</span>(is_array($defaultCSS)) {
+<a name="l00075"></a>00075             $CSS_FILES = $defaultCSS;
+<a name="l00076"></a>00076         }
+<a name="l00077"></a>00077     }
+<a name="l00078"></a>00078     <span class="keywordflow">if</span> (isset($defaultJS)) {
+<a name="l00079"></a>00079         <span class="keywordflow">if</span>(is_array($defaultJS)) {
+<a name="l00080"></a>00080             $JS_FILES = $defaultJS;
+<a name="l00081"></a>00081         }
+<a name="l00082"></a>00082     }
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084     <span class="comment">/* Si on a spécifié un prefix pour le titre des pages dans le controller alors on le défini comme titre */</span>
+<a name="l00085"></a>00085     <span class="keywordflow">if</span>(isset($pageTitlePrefix))
+<a name="l00086"></a>00086         $pageTitle = $pageTitlePrefix;
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088     <span class="comment">/* vérification de l&#39;existence de l&#39;action, si elle n&#39;existe pas on redirige vers l&#39;action par défaut du contrôleur (la fonction index par configuration de base) */</span>
+<a name="l00089"></a>00089     <span class="keywordflow">if</span> (!function_exists($action)) 
+<a name="l00090"></a>00090         $action = <a class="code" href="config_8php.html#a57597912779f7a405b4930ca59fbbb8e">INDEX_ACTION</a>;
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092     <span class="comment">/* Appel de l&#39;action demandée pour le controller demandé */</span>   
+<a name="l00093"></a>00093     call_user_func_array($action, $params);
+<a name="l00094"></a>00094 }
+<a name="l00095"></a>00095 
+<a name="l00106"></a><a class="code" href="dispatcher_8php.html#a313bca01e64a3f4ab9ed872828e1af0f">00106</a> <span class="keyword">function</span> <a class="code" href="dispatcher_8php.html#a313bca01e64a3f4ab9ed872828e1af0f" title="Recupère le chemin vers le contrôleur demandé. Fonction appelée uniquement par parseURL(), ne pas appeler en dehors.">getControllerFilePath</a>($controller) {
+<a name="l00107"></a>00107     $file = <span class="stringliteral">&#39;controllers/&#39;</span> . $controller . <span class="stringliteral">&#39;Controller.php&#39;</span>;
+<a name="l00108"></a>00108     <span class="keywordflow">if</span>(is_file($file))
+<a name="l00109"></a>00109         <span class="keywordflow">return</span> $file;
+<a name="l00110"></a>00110     <span class="keywordflow">else</span>
+<a name="l00111"></a>00111         <span class="keywordflow">return</span> <span class="stringliteral">&#39;controllers/404Controller.php&#39;</span>;
+<a name="l00112"></a>00112 }
+</pre></div></div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="dispatcher_8php.html">dispatcher.php</a>      </li>
+
+    <li class="footer">Généré le Samedi Mars 24 2012 15:53:30 pour IMAC MVC par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>

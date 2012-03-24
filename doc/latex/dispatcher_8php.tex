@@ -1,0 +1,102 @@
+\hypertarget{dispatcher_8php}{\section{Référence du fichier core/dispatcher.php}
+\label{dispatcher_8php}\index{core/dispatcher.\-php@{core/dispatcher.\-php}}
+}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{dispatcher_8php_ae983faa34cafdcccc76bb81647d10d72}{dispatch} (\$default\-Controller=null, \$default\-Action=\hyperlink{config_8php_a57597912779f7a405b4930ca59fbbb8e}{I\-N\-D\-E\-X\-\_\-\-A\-C\-T\-I\-O\-N}, \$rewrite=false)
+\begin{DoxyCompactList}\small\item\em Défini le contrôleur et l'action à appeler. A utiliser uniquement dans la page {\bfseries index.\-php} à la racine de votre projet. \end{DoxyCompactList}\item 
+\hyperlink{dispatcher_8php_ac8975bde247e471a5a6441be370de10b}{parse\-U\-R\-L} (\$url)
+\begin{DoxyCompactList}\small\item\em Parse une url en extrayant le contrôleur, l'action et les paramètres demandés. Mets à jour les fichiers .css et .js associés à l'action du contrôleur demandé. Cette fonction est appelée directement depuis la fonction \hyperlink{dispatcher_8php_ae983faa34cafdcccc76bb81647d10d72}{dispatch()}. Ne pas l'appeler en dehors. \end{DoxyCompactList}\item 
+\hyperlink{dispatcher_8php_a313bca01e64a3f4ab9ed872828e1af0f}{get\-Controller\-File\-Path} (\$controller)
+\begin{DoxyCompactList}\small\item\em Recupère le chemin vers le contrôleur demandé. Fonction appelée uniquement par \hyperlink{dispatcher_8php_ac8975bde247e471a5a6441be370de10b}{parse\-U\-R\-L()}, ne pas appeler en dehors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{dispatcher_8php_ae983faa34cafdcccc76bb81647d10d72}{\index{dispatcher.\-php@{dispatcher.\-php}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!dispatcher.php@{dispatcher.\-php}}
+\subsubsection[{dispatch}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dispatch} (
+\begin{DoxyParamCaption}
+\item[{\$}]{default\-Controller = {\ttfamily null}, }
+\item[{\$}]{default\-Action = {\ttfamily {\bf I\-N\-D\-E\-X\-\_\-\-A\-C\-T\-I\-O\-N}}, }
+\item[{\$}]{rewrite = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{dispatcher_8php_ae983faa34cafdcccc76bb81647d10d72}
+
+
+Défini le contrôleur et l'action à appeler. A utiliser uniquement dans la page {\bfseries index.\-php} à la racine de votre projet. 
+
+\begin{DoxyAuthor}{Auteur}
+Pierre Criulanscy 
+\end{DoxyAuthor}
+\begin{DoxySince}{Depuis}
+0.\-1.\-1 
+\end{DoxySince}
+
+\begin{DoxyParams}{Paramètres}
+{\em \$default\-Controller} & Contrôleur par défaut pour rediriger la page d'accueil vers autre chose que l'action home du contrôleur Pages \\
+\hline
+{\em \$default\-Action} & Action par défaut du contrôleur par défaut à appeler dans le cas cité ci-\/dessus \\
+\hline
+{\em \$rewrite} & Booléen qui permet de spécifier si l'url doit être réécrite (i.\-e une redirection s'effectue) dans l'url ou non. Dans le cas d'un appel d'un contrôleur par défaut, il est intéressant de spécifier ce paramètre à true pour des soucis de référencement\\
+\hline
+\end{DoxyParams}
+Par défaut si l'utilisation est sur la page d'accueil du site (par exemple www.\-monsite.\-com) alors la fonction renvoie l'utilisateur directement à l'action \char`\"{}home\char`\"{} du contrôleur Pages qui est le contrôleur qui gère les pages statiques. Si vous souhaitez appelé l'action d'un contrôleur personnalisé afin d'avoir une page d'accueil dynamique, spécifiez alors les paramètres nécessaires. Exemple \-: Vous souhaitez que l'adresse www.\-monsite.\-com corresponde à l'action \char`\"{}index\char`\"{} du contrôleur \char`\"{}\-News\char`\"{} pour que la page d'accueil soit une liste des news par exemple, alors appelé la fonction dispatch dans index.\-php avec les paramètres suivant \-: dispatch('news', 'index', false); Mettre le paramètre à false permet d'avoir comme url de la page \char`\"{}www.\-monsite.\-com\char`\"{}, si vous le spécifier à true en accedant à www.\-monsite.\-com l'utilisateur serait redirigé vers www.\-monsite.\-com/news/. 
+
+Définition à la ligne 14 du fichier dispatcher.\-php.
+
+\hypertarget{dispatcher_8php_a313bca01e64a3f4ab9ed872828e1af0f}{\index{dispatcher.\-php@{dispatcher.\-php}!get\-Controller\-File\-Path@{get\-Controller\-File\-Path}}
+\index{get\-Controller\-File\-Path@{get\-Controller\-File\-Path}!dispatcher.php@{dispatcher.\-php}}
+\subsubsection[{get\-Controller\-File\-Path}]{\setlength{\rightskip}{0pt plus 5cm}{\bf get\-Controller\-File\-Path} (
+\begin{DoxyParamCaption}
+\item[{\$}]{controller}
+\end{DoxyParamCaption}
+)}}\label{dispatcher_8php_a313bca01e64a3f4ab9ed872828e1af0f}
+
+
+Recupère le chemin vers le contrôleur demandé. Fonction appelée uniquement par \hyperlink{dispatcher_8php_ac8975bde247e471a5a6441be370de10b}{parse\-U\-R\-L()}, ne pas appeler en dehors. 
+
+\begin{DoxyAuthor}{Auteur}
+Pierre Criulanscy 
+\end{DoxyAuthor}
+\begin{DoxySince}{Depuis}
+0.\-1.\-1 
+\end{DoxySince}
+
+\begin{DoxyParams}{Paramètres}
+{\em \$controller} & nom du contrôleur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le chemin vers le contrôleur
+\end{DoxyReturn}
+Si le contrôleur existe bien (on teste ici l'existence du fichier) on returne le chemin vers celui-\/ci sinon on défini le chemin comme celui pointant vers le contrôleur qui gère les erreurs 404 
+
+Définition à la ligne 106 du fichier dispatcher.\-php.
+
+\hypertarget{dispatcher_8php_ac8975bde247e471a5a6441be370de10b}{\index{dispatcher.\-php@{dispatcher.\-php}!parse\-U\-R\-L@{parse\-U\-R\-L}}
+\index{parse\-U\-R\-L@{parse\-U\-R\-L}!dispatcher.php@{dispatcher.\-php}}
+\subsubsection[{parse\-U\-R\-L}]{\setlength{\rightskip}{0pt plus 5cm}{\bf parse\-U\-R\-L} (
+\begin{DoxyParamCaption}
+\item[{\$}]{url}
+\end{DoxyParamCaption}
+)}}\label{dispatcher_8php_ac8975bde247e471a5a6441be370de10b}
+
+
+Parse une url en extrayant le contrôleur, l'action et les paramètres demandés. Mets à jour les fichiers .css et .js associés à l'action du contrôleur demandé. Cette fonction est appelée directement depuis la fonction \hyperlink{dispatcher_8php_ae983faa34cafdcccc76bb81647d10d72}{dispatch()}. Ne pas l'appeler en dehors. 
+
+\begin{DoxyAuthor}{Auteur}
+Pierre Criulanscy 
+\end{DoxyAuthor}
+\begin{DoxySince}{Depuis}
+0.\-1.\-1 
+\end{DoxySince}
+
+\begin{DoxyParams}{Paramètres}
+{\em \$url} & Contient les informations sur l'url, soit ici une chaine de caractère de la forme \char`\"{}controller/action/\mbox{[}params1/params2/...\mbox{]}\char`\"{} \mbox{[}\mbox{]} = facultatif \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 41 du fichier dispatcher.\-php.
+

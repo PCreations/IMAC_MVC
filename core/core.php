@@ -4,6 +4,8 @@ require_once("core/libCore.php");
 require_once("core/dispatcher.php");
 require_once("core/database.config.php");
 
+
+/* Connexion à la base de données */
 try
 {
 	$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;

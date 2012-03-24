@@ -2,4 +2,4 @@ Options +FollowSymlinks
 RewriteEngine On
 
 RewriteCond %{SCRIPT_FILENAME} !index.php [NC]
-RewriteRule ^(.*)$ /mvc/index.php?page=$1 [L,R]
+RewriteRule ^(.*)$ /mvc/index.php?page=$1 [L]

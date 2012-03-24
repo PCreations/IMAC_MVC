@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>IMAC MVC: Référence du fichier core/libCore.php</title>
+
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div! -->
+
+
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  
+  
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">IMAC MVC
+   &#160;<span id="projectnumber">0.1.1</span>
+   </div>
+   <div id="projectbrief">Petite architecture MVC simplifiée pour les projets IMAC1 php</div>
+  </td>
+  
+  
+  
+ </tr>
+ </tbody>
+</table>
+</div>
+
+<!-- Généré par Doxygen 1.8.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('lib_core_8php.html','');
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Énumérations</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier core/libCore.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><a href="lib_core_8php_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a0d873ae3d276b3c9b164620ea3a83dc0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_core_8php.html#a0d873ae3d276b3c9b164620ea3a83dc0">render</a> ($view, $vars=array())</td></tr>
+<tr class="memdesc:a0d873ae3d276b3c9b164620ea3a83dc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rend la vue demandée en y affectant les différentes variables définies dans le contrôleur et génération des liens vers les fichiers .css et .js. A utiliser depuis le <b>contrôleur</b>.  <a href="#a0d873ae3d276b3c9b164620ea3a83dc0"></a><br/></td></tr>
+<tr class="memitem:a8f2e8ac7c5028583a64f546220dab2de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_core_8php.html#a8f2e8ac7c5028583a64f546220dab2de">addJS</a> ($js)</td></tr>
+<tr class="memdesc:a8f2e8ac7c5028583a64f546220dab2de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un fichier .js dans le tableau global des fichiers à inclure. A utiliser depuis le <b>contrôleur</b>.  <a href="#a8f2e8ac7c5028583a64f546220dab2de"></a><br/></td></tr>
+<tr class="memitem:adce775aa95de205dae7e259c163ba3bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_core_8php.html#adce775aa95de205dae7e259c163ba3bd">addCSS</a> ($css)</td></tr>
+<tr class="memdesc:adce775aa95de205dae7e259c163ba3bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un fichier .css dans le tableau global des fichiers à inclure. A utiliser depuis le <b>contrôleur</b>.  <a href="#adce775aa95de205dae7e259c163ba3bd"></a><br/></td></tr>
+<tr class="memitem:a1785c8b0d2b545f3a495f3eabdf3c095"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_core_8php.html#a1785c8b0d2b545f3a495f3eabdf3c095">redirect</a> ($controller, $action, $params=array())</td></tr>
+<tr class="memdesc:a1785c8b0d2b545f3a495f3eabdf3c095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redirige l'internaute vers l'action du contrôleur demandé. A utiliser depuis le <b>contrôleur</b>.  <a href="#a1785c8b0d2b545f3a495f3eabdf3c095"></a><br/></td></tr>
+<tr class="memitem:a40b9a8f80be612334136684f32780bb3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_core_8php.html#a40b9a8f80be612334136684f32780bb3">createLink</a> ($controller, $action, $params=array())</td></tr>
+<tr class="memdesc:a40b9a8f80be612334136684f32780bb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Création d'un lien au format prédéfini dans l'application (par défaut controller/action/[param1/params2]...). A utiliser depuis le <b>contrôleur</b> ou directement depuis la <b>vue</b>.  <a href="#a40b9a8f80be612334136684f32780bb3"></a><br/></td></tr>
+<tr class="memitem:aca5a9e6f09836b4e7016aff7737ca1e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_core_8php.html#aca5a9e6f09836b4e7016aff7737ca1e2">l</a> ($controller, $action, $params=array())</td></tr>
+<tr class="memdesc:aca5a9e6f09836b4e7016aff7737ca1e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias de <a class="el" href="lib_core_8php.html#a40b9a8f80be612334136684f32780bb3" title="Création d&#39;un lien au format prédéfini dans l&#39;application (par défaut controller/action/[param1/param...">createLink()</a>. A utiliser depuis le <b>contrôleur</b> ou directement depuis la <b>vue</b>.  <a href="#aca5a9e6f09836b4e7016aff7737ca1e2"></a><br/></td></tr>
+</table>
+<hr/><h2>Documentation des fonctions</h2>
+<a class="anchor" id="adce775aa95de205dae7e259c163ba3bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lib_core_8php.html#adce775aa95de205dae7e259c163ba3bd">addCSS</a> </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>css</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Ajoute un fichier .css dans le tableau global des fichiers à inclure. A utiliser depuis le <b>contrôleur</b>. </p>
+<dl class="section author"><dt>Auteur:</dt><dd>Pierre Criulanscy </dd></dl>
+<dl class="section since"><dt>Depuis:</dt><dd>0.1.1 </dd></dl>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">$css</td><td>nom du fichier .css (avec l'extension) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="lib_core_8php_source.html#l00078">78</a> du fichier <a class="el" href="lib_core_8php_source.html">libCore.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8f2e8ac7c5028583a64f546220dab2de"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lib_core_8php.html#a8f2e8ac7c5028583a64f546220dab2de">addJS</a> </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>js</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Ajoute un fichier .js dans le tableau global des fichiers à inclure. A utiliser depuis le <b>contrôleur</b>. </p>
+<dl class="section author"><dt>Auteur:</dt><dd>Pierre Criulanscy </dd></dl>
+<dl class="section since"><dt>Depuis:</dt><dd>0.1.1 </dd></dl>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">$js</td><td>nom du fichier .js (avec l'extension) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="lib_core_8php_source.html#l00056">56</a> du fichier <a class="el" href="lib_core_8php_source.html">libCore.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a40b9a8f80be612334136684f32780bb3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lib_core_8php.html#a40b9a8f80be612334136684f32780bb3">createLink</a> </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>controller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>action</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>params</em> = <code>array()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Création d'un lien au format prédéfini dans l'application (par défaut controller/action/[param1/params2]...). A utiliser depuis le <b>contrôleur</b> ou directement depuis la <b>vue</b>. </p>
+<dl class="section author"><dt>Auteur:</dt><dd>Pierre Criulanscy </dd></dl>
+<dl class="section since"><dt>Depuis:</dt><dd>0.1.1 </dd></dl>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">$controller</td><td>nom du contrôleur </td></tr>
+    <tr><td class="paramname">$action</td><td>nom de l'action </td></tr>
+    <tr><td class="paramname">$params</td><td>paramètres éventuels à passer à l'action sous forme de tableau </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie:</dt><dd>le lien absolu vers l'action demandée </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="lib_core_8php_source.html#l00118">118</a> du fichier <a class="el" href="lib_core_8php_source.html">libCore.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aca5a9e6f09836b4e7016aff7737ca1e2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lib_core_8php.html#aca5a9e6f09836b4e7016aff7737ca1e2">l</a> </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>controller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>action</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>params</em> = <code>array()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Alias de <a class="el" href="lib_core_8php.html#a40b9a8f80be612334136684f32780bb3" title="Création d&#39;un lien au format prédéfini dans l&#39;application (par défaut controller/action/[param1/param...">createLink()</a>. A utiliser depuis le <b>contrôleur</b> ou directement depuis la <b>vue</b>. </p>
+<dl class="section author"><dt>Auteur:</dt><dd>Pierre Criulanscy </dd></dl>
+<dl class="section since"><dt>Depuis:</dt><dd>0.1.1 </dd></dl>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">$controller</td><td>nom du contrôleur </td></tr>
+    <tr><td class="paramname">$action</td><td>nom de l'action </td></tr>
+    <tr><td class="paramname">$params</td><td>paramètres éventuels à passer à l'action sous forme de tableau </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie:</dt><dd>le lien absolu vers l'action demandée </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="lib_core_8php_source.html#l00142">142</a> du fichier <a class="el" href="lib_core_8php_source.html">libCore.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1785c8b0d2b545f3a495f3eabdf3c095"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lib_core_8php.html#a1785c8b0d2b545f3a495f3eabdf3c095">redirect</a> </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>controller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>action</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>params</em> = <code>array()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Redirige l'internaute vers l'action du contrôleur demandé. A utiliser depuis le <b>contrôleur</b>. </p>
+<dl class="section author"><dt>Auteur:</dt><dd>Pierre Criulanscy </dd></dl>
+<dl class="section since"><dt>Depuis:</dt><dd>0.1.1 </dd></dl>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">$controller</td><td>nom du contrôleur </td></tr>
+    <tr><td class="paramname">$action</td><td>nom de l'action </td></tr>
+    <tr><td class="paramname">$params</td><td>paramètres éventuels à passer à l'action </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="lib_core_8php_source.html#l00103">103</a> du fichier <a class="el" href="lib_core_8php_source.html">libCore.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0d873ae3d276b3c9b164620ea3a83dc0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lib_core_8php.html#a0d873ae3d276b3c9b164620ea3a83dc0">render</a> </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>view</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>vars</em> = <code>array()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Rend la vue demandée en y affectant les différentes variables définies dans le contrôleur et génération des liens vers les fichiers .css et .js. A utiliser depuis le <b>contrôleur</b>. </p>
+<dl class="section author"><dt>Auteur:</dt><dd>Pierre Criulanscy </dd></dl>
+<dl class="section since"><dt>Depuis:</dt><dd>0.1.1 </dd></dl>
+<dl class="params"><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">$view</td><td>nom de la vue à rendre </td></tr>
+    <tr><td class="paramname">$vars</td><td>variables à faire passer à la vue sous la forme d'un tableau associatif. La clé représente le nom de la variable qui pourra être utilisée dans la vue, sa valeur correspond à la valeur de la clé dans le tableau. Si $vars = array("var1" =&gt; "toto", "var2" =&gt; "titi"); alors dans la vue seront accessibles les variables $var1 et $var2 avec comme valeur respective "toto" et "titi" </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="lib_core_8php_source.html#l00010">10</a> du fichier <a class="el" href="lib_core_8php_source.html">libCore.php</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="lib_core_8php.html">libCore.php</a>      </li>
+
+    <li class="footer">Généré le Samedi Mars 24 2012 15:53:30 pour IMAC MVC par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.0 </li>
+   </ul>
+ </div>
+
+
+</body>
+</html>
