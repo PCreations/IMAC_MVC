@@ -12,6 +12,7 @@ function render($view, $vars = array()) {
 	global $CSS_FILES; //récupération de la liste des fichiers .css
 	global $JS_FILES; //récupération de la liste des fichiers .js
 	global $pageTitle; //récupération du titre
+	global $layout; //récupération du layout
 
 
 	$jsList = '';
@@ -36,6 +37,14 @@ function render($view, $vars = array()) {
 	/* récupération du titre de la page */
 	$finalPageTitle = (isset($vars['pageTitle'])) ? $pageTitle .$vars['pageTitle'] : $pageTitle;
 
+	/* récupération du layout */
+	if (isset($vars['layout'])) {
+		$finalLayout = $vars['layout'];
+		unset($vars['layout']);
+	}
+	else
+		$finalLayout = $layout;
+
 	extract($vars);
 	$pageTitle = $finalPageTitle;
 	
@@ -43,7 +52,7 @@ function render($view, $vars = array()) {
 	ob_start(); 
 	require_once("views/$currentController/$view.php"); //on bufferise le contenu de la vue
 	$contentForLayout = ob_get_clean(); //qu'on stocke dans la variable $contentForLayout
-	require_once(THEME_PATH . DS . 'layout.php'); //au final le layout est affiché avec en son sein le contenu de la vue
+	require_once(THEME_PATH . DS . $finalLayout . '.php'); //au final le layout est affiché avec en son sein le contenu de la vue
 }
 
 /**
@@ -100,8 +109,32 @@ function addCSS($css) {
  * \param $action nom de l'action
  * \param $params paramètres éventuels à passer à l'action
  */
-function redirect($controller, $action, $params = array()) {
-	header('Location: ' . BASE_URL . l($controller, $action, $params));
+function redirect($controller, $action, $params = array(), $code = 200) {
+	$httpCodes = array(
+				100 => 'Continue', 101 => 'Switching Protocols',
+				200 => 'OK', 201 => 'Created', 202 => 'Accepted',
+				203 => 'Non-Authoritative Information', 204 => 'No Content',
+				205 => 'Reset Content', 206 => 'Partial Content',
+				300 => 'Multiple Choices', 301 => 'Moved Permanently',
+				302 => 'Found', 303 => 'See Other',
+				304 => 'Not Modified', 305 => 'Use Proxy', 307 => 'Temporary Redirect',
+				400 => 'Bad Request', 401 => 'Unauthorized', 402 => 'Payment Required',
+				403 => 'Forbidden', 404 => 'Not Found', 405 => 'Method Not Allowed',
+				406 => 'Not Acceptable', 407 => 'Proxy Authentication Required',
+				408 => 'Request Time-out', 409 => 'Conflict', 410 => 'Gone',
+				411 => 'Length Required', 412 => 'Precondition Failed',
+				413 => 'Request Entity Too Large', 414 => 'Request-URI Too Large',
+				415 => 'Unsupported Media Type', 416 => 'Requested range not satisfiable',
+				417 => 'Expectation Failed', 500 => 'Internal Server Error',
+				501 => 'Not Implemented', 502 => 'Bad Gateway',
+				503 => 'Service Unavailable', 504 => 'Gateway Time-out'
+			);
+	/* si le code indiqué n'est pas valide en spécifie le code à 200 par défaut */
+	if(!array_key_exists($code, $httpCodes)) {
+		$code = '200';
+	}
+	header("HTTP/1.0 $code " . $httpCodes[$code]);
+	header('Location: ' . l($controller, $action, $params));
 	exit();
 }
 

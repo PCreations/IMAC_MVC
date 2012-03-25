@@ -65,9 +65,12 @@ function parseURL($url) {
 								[1] => 'params2')*/
 	$params = array_slice($params, 2); 
 
-	/* Inclusion du controller demandé, s'il n'existe pas en inclu à la place le controller qui gere les erreurs 404 (ici le controller 404) */
+	/* Inclusion du controller demandé, si la fonction renvoie false c'est que le contrôleur n'existe pas, on redirige alors vers le contrôleur qui gère les erreurs 404 */
 	$controllerFilePath = getControllerFilePath($currentController);
-	require_once($controllerFilePath);
+	if($controllerFilePath === false)
+		redirect(HTTP_ERR_CONTROLLER, HTTP_404_ACTION, array(), 404);
+	else
+		require_once($controllerFilePath);
 
 	/* reset des fichiers CSS et JS pour qu'ils correspondent à ceux par défaut du controller */
 	if (isset($defaultCSS)) {
@@ -86,8 +89,11 @@ function parseURL($url) {
 		$pageTitle = $pageTitlePrefix;
 
 	/* vérification de l'existence de l'action, si elle n'existe pas on redirige vers l'action par défaut du contrôleur (la fonction index par configuration de base) */
-	if (!function_exists($action)) 
+	if (!function_exists($action)) {
 		$action = INDEX_ACTION;
+		if (!function_exists($action))
+			redirect(HTTP_ERROR_CONTROLLER, HTTP_404_ACTION, array(), 404);
+	}
 
 	/* Appel de l'action demandée pour le controller demandé */	
 	call_user_func_array($action, $params);
@@ -108,5 +114,5 @@ function getControllerFilePath($controller) {
 	if(is_file($file))
 		return $file;
 	else
-		return 'controllers/404Controller.php';
+		return false;
 }

@@ -31,3 +31,9 @@ define('IMG_DIR', BASE_URL . 'views/themes/' . $theme . '/img/');
 
 /**  Défini le chemin vers le dossier js/ du thème */
 define('JS_DIR', BASE_URL . 'views/themes/' . $theme . '/js/');
+
+/** Défini le nom du contrôleur qui gerera les erreurs HTTP (comme l'erreur 404 par exemple) */
+define('HTTP_ERR_CONTROLLER', 'httpErrors');
+
+/** Défini le nom de l'action à déclencher en cas d'erreur 404 */
+define('HTTP_404_ACTION', 'notFound');
