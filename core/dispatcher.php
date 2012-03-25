@@ -105,7 +105,7 @@ function parseURL($url) {
  * \author Pierre Criulanscy
  * \since 0.1.1
  * \param $controller nom du contrôleur
- * \return le chemin vers le contrôleur
+ * \return mixed Le chemin vers le contrôleur si celui-ci existe sinon renvoie false
  *
  * \details Si le contrôleur existe bien (on teste ici l'existence du fichier) on returne le chemin vers celui-ci sinon on défini le chemin comme celui pointant vers le contrôleur qui gère les erreurs 404
  */

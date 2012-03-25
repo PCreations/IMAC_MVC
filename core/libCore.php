@@ -108,6 +108,7 @@ function addCSS($css) {
  * \param $controller nom du contrôleur
  * \param $action nom de l'action
  * \param $params paramètres éventuels à passer à l'action
+ * \param $code code HTTP que le serveur doit renvoyer pour la page
  */
 function redirect($controller, $action, $params = array(), $code = 200) {
 	$httpCodes = array(
