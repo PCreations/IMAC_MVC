@@ -33,7 +33,16 @@ define('IMG_DIR', BASE_URL . 'views/themes/' . $theme . '/img/');
 define('JS_DIR', BASE_URL . 'views/themes/' . $theme . '/js/');
 
 /** Défini le nom du contrôleur qui gerera les erreurs HTTP (comme l'erreur 404 par exemple) */
-define('HTTP_ERR_CONTROLLER', 'httpErrors');
+define('HTTP_ERR_CONTROLLER', 'errors');
 
 /** Défini le nom de l'action à déclencher en cas d'erreur 404 */
 define('HTTP_404_ACTION', 'notFound');
+
+/** Défini le nom de la constante de message flash d'erreur **/
+define('FLASH_SUCCESS',  0);
+
+/** Défini le nom de la constante de message flash de succès **/
+define('FLASH_ERROR',  1);
+
+/** Défini le nom de la constante de message flash  d'information **/
+define('FLASH_INFO', 2);

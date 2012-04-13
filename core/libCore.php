@@ -1,4 +1,6 @@
 <?php
+$messageFlash;
+
 /**
  * \brief Rend la vue demandée en y affectant les différentes variables définies dans le contrôleur et génération des liens vers les fichiers .css et .js. A utiliser depuis le \b contrôleur
  *
@@ -7,13 +9,13 @@
  * \param $view nom de la vue à rendre
  * \param $vars variables à faire passer à la vue sous la forme d'un tableau associatif. La clé représente le nom de la variable qui pourra être utilisée dans la vue, sa valeur correspond à la valeur de la clé dans le tableau. Si $vars = array("var1" => "toto", "var2" => "titi"); alors dans la vue seront accessibles les variables $var1 et $var2 avec comme valeur respective "toto" et "titi"
  */
-function render($view, $vars = array()) {
-	global $currentController; //récupération de la variable qui stockera le contrôleur ocurant
+function render($requestedView, $vars = array()) {
+	global $currentController; //récupération de la variable qui stockera le contrôleur courant
 	global $CSS_FILES; //récupération de la liste des fichiers .css
 	global $JS_FILES; //récupération de la liste des fichiers .js
 	global $pageTitle; //récupération du titre
 	global $layout; //récupération du layout
-
+	global $messageFlash; //récupération du message flash
 
 	$jsList = '';
 	$cssList = '';
@@ -49,8 +51,11 @@ function render($view, $vars = array()) {
 	$pageTitle = $finalPageTitle;
 	
 	/* Tamporisation de sortie pour inclure la vue. Tout ce que l'on écrit avec ob_start() est "enregistré" dans un buffer. Le contenu de ce buffer (ici c'est à dire le contenu du fichier layout.php) peut-être récupéré dans une variable avec la fonction ob_get_clean() */
-	ob_start(); 
-	require_once("views/$currentController/$view.php"); //on bufferise le contenu de la vue
+	ob_start();
+	if (is_array($messageFlash)) {
+		require_once("views/elements/{$messageFlash['msgView']}.php");
+	}
+	require_once("views/$currentController/$requestedView.php"); //on bufferise le contenu de la vue
 	$contentForLayout = ob_get_clean(); //qu'on stocke dans la variable $contentForLayout
 	require_once(THEME_PATH . DS . $finalLayout . '.php'); //au final le layout est affiché avec en son sein le contenu de la vue
 }
@@ -110,6 +115,7 @@ function addCSS($css) {
  * \param $params paramètres éventuels à passer à l'action
  */
 function redirect($controller, $action, $params = array(), $code = 200) {
+	global $currentController;
 	$httpCodes = array(
 				100 => 'Continue', 101 => 'Switching Protocols',
 				200 => 'OK', 201 => 'Created', 202 => 'Accepted',
@@ -174,4 +180,32 @@ function createLink($controller, $action, $params = array()) {
  */
 function l($controller, $action, $params = array()) {
 	return createLink($controller, $action, $params);
+}
+
+/**
+ * \brief Envoie un message flash à la vue
+ *
+ * \author Pierre Criulanscy
+ * \since 0.1.2
+ * \param $msg contenu texte du message
+ * \param $type type du message. Peut prendre les valeurs FLASH_INFO pour un message informatif, FLASH_SUCCESS pour une nofitication de succès et FLASH_ERROR pour une notification d'erreur
+ * \details Le message flash est un petit message qui sera affiché juste avant l'inclusion de votre vue, très utile pour des notifications
+ */
+function setMessage($msg, $type = FLASH_INFO) {
+	global $messageFlash;
+	$msgView;
+	switch($type) {
+		case 'FLASH_ERROR':
+			$msgView = 'flash-error';
+			break;
+		case 'FLASH_SUCCESS':
+			$msgView = 'flash-success';
+			break;
+		case 'FLASH_INFOS':
+		default:
+			$msgView = 'flash-infos';
+			break;
+	}
+	$messageFlash = array('msgView' => $msgView,
+					      'msg' => $msg);
 }
