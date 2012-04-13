@@ -27,6 +27,7 @@ function dispatch($defaultController = null, $defaultAction = INDEX_ACTION, $rew
 		}
 		
 	}
+
 	parseURL($url);
 }
 
@@ -95,7 +96,7 @@ function parseURL($url) {
 			redirect(HTTP_ERROR_CONTROLLER, HTTP_404_ACTION, array(), 404);
 	}
 
-	/* Appel de l'action demandée pour le controller demandé */	
+	/* Appel de l'action demandée pour le controller demandé */
 	call_user_func_array($action, $params);
 }
 
