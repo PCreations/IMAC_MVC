@@ -27,6 +27,7 @@ function dispatch($defaultController = null, $defaultAction = INDEX_ACTION, $rew
 		}
 		
 	}
+
 	parseURL($url);
 }
 
@@ -40,10 +41,13 @@ function dispatch($defaultController = null, $defaultAction = INDEX_ACTION, $rew
  */
 function parseURL($url) {
 	global $currentController; //récupération de la variable qui stockera le contrôleur ocurant
+	global $currentAction;
+	global $currentParams;
 	global $CSS_FILES; //récupération de la liste des fichiers .css
 	global $JS_FILES; //récupération de la liste des fichiers .js
 	global $pageTitle; //récupération du titre
 
+	
 	/* suppression des '/' en fin d'url et extraction sous forme de tableau des différents éléments */
 	$url = rtrim($url, '/');
 	$params = explode('/', $url);
@@ -88,14 +92,14 @@ function parseURL($url) {
 	if(isset($pageTitlePrefix))
 		$pageTitle = $pageTitlePrefix;
 
-	/* vérification de l'existence de l'action, si elle n'existe pas on redirige vers l'action par défaut du contrôleur (la fonction index par configuration de base) */
-	if (!function_exists($action)) {
+	/* vérification de l'existence et de la visibilité de l'action, si elle n'existe pas on redirige vers l'action par défaut du contrôleur (la fonction index par configuration de base) */
+	if (!function_exists($action) || (strpos($action, '_') === 0 && !isPost())) {
 		$action = INDEX_ACTION;
 		if (!function_exists($action))
 			redirect(HTTP_ERROR_CONTROLLER, HTTP_404_ACTION, array(), 404);
 	}
-
-	/* Appel de l'action demandée pour le controller demandé */	
+	
+	/* Appel de l'action demandée pour le controller demandé */
 	call_user_func_array($action, $params);
 }
 
@@ -110,7 +114,7 @@ function parseURL($url) {
  * \details Si le contrôleur existe bien (on teste ici l'existence du fichier) on returne le chemin vers celui-ci sinon on défini le chemin comme celui pointant vers le contrôleur qui gère les erreurs 404
  */
 function getControllerFilePath($controller) {
-	$file = 'controllers/' . $controller . 'Controller.php';
+	$file = 'controllers/' . $controller . '_controller.php';
 	if(is_file($file))
 		return $file;
 	else

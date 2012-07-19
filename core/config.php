@@ -6,7 +6,7 @@ define('GET_VAR_NAME', 'page');
 define('INDEX_ACTION', 'index');
 
 /**  Url de base du site */
-define('BASE_URL', 'http://localhost/mvc/');
+define('BASE_URL', 'http://localhost/dixit/');
 
 /**  Alias de DIRECTORY_SEPARATOR */
 define('DS', DIRECTORY_SEPARATOR);
@@ -33,7 +33,25 @@ define('IMG_DIR', BASE_URL . 'views/themes/' . $theme . '/img/');
 define('JS_DIR', BASE_URL . 'views/themes/' . $theme . '/js/');
 
 /** Défini le nom du contrôleur qui gerera les erreurs HTTP (comme l'erreur 404 par exemple) */
-define('HTTP_ERR_CONTROLLER', 'httpErrors');
+define('HTTP_ERR_CONTROLLER', 'errors');
 
 /** Défini le nom de l'action à déclencher en cas d'erreur 404 */
 define('HTTP_404_ACTION', 'notFound');
+
+/** Défini le nom de la constante de message flash de succès **/
+define('FLASH_SUCCESS',  0);
+
+/** Défini le nom de la constante de message flash d'erreur **/
+define('FLASH_ERROR',  1);
+
+/** Défini le nom de la constante de message flash  d'information **/
+define('FLASH_INFOS', 2);
+
+/** Défini la clé de sécurité utilisé pour hasher les chaînes de caractères **/
+define('SECURITY_KEY', '5465qs6d564qs5§ù*qs$ù');
+
+/** Défini le nom du model utilisé pour gérer les utilisateurs **/
+define('USER_MODEL', 'user');
+
+/** Défini le nom du champ utilisé pour la clé primaire de la table représentant les utilisateurs **/
+define('USER_PK', 'us_id');
